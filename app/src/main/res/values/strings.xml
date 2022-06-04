@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PizzaAppDemo</string>
+    <string name="roma_pizza">Roma Pizza</string>
+    <string name="created">version 1.0 \n created by|GITA</string>
+    <string name="xit">Xit</string>
+    <string name="where">Where pizza</string>
+    <string name="tashkent">Tashkent</string>
+    <string name="check_shipping_address">Check shipping address</string>
+    <string name="address">address</string>
+    <string name="food">Food</string>
+    <string name="filter">Filter</string>
 </resources>
