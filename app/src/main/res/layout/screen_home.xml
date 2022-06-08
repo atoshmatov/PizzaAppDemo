@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.ui.screen.home.HomeScreen">
+    android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -17,7 +18,7 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="wrap_content"
             android:background="#FFF"
             android:fitsSystemWindows="true"
             app:elevation="1dp">
@@ -36,78 +37,13 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/headerOne"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="10dp"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_geo_alt"
-                            android:textColor="@color/white"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/location"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="@string/tashkent"
-                            android:textColor="@color/black"
-                            tools:ignore="UseCompatTextViewDrawableXml" />
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:background="?android:selectableItemBackgroundBorderless"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_chevron_up"
-                            android:textColor="@color/white"
-                            android:textSize="20sp" />
-
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_marginHorizontal="8dp"
-                        android:background="@color/line_color" />
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/headerTwo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:adjustViewBounds="true"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:src="@drawable/pizza"
-                            android:textColor="@color/white"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/wherePizza"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="@string/where"
-                            android:textColor="@color/black" />
+                            android:id="@+id/menuBurger"
+                            style="@style/burger_style"
+                            android:src="@drawable/ic_menu_burger" />
 
                         <View
                             android:layout_width="0dp"
@@ -115,36 +51,64 @@
                             android:layout_weight="2" />
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/menuBurger"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_margin="10dp"
-                            android:background="?android:selectableItemBackgroundBorderless"
-                            android:clickable="true"
-                            android:focusable="true"
-                            android:padding="8dp"
-                            android:src="@drawable/ic_menu_burger" />
+                            style="@style/locationImage_style"
+                            android:src="@drawable/ic_location" />
+
+                        <TextView
+                            android:id="@+id/location"
+                            style="@style/location_style"
+                            android:text="@string/tashkent"
+                            tools:ignore="UseCompatTextViewDrawableXml" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/citySelected"
+                            style="@style/citySelected_style"
+                            android:src="@drawable/ic_chevron_up" />
+
                     </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <LinearLayout
+                        android:id="@+id/linear"
+                        android:layout_height="48dp"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/search_style"
+                        android:elevation="1dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:focusable="true"
+                            app:closeIcon="@drawable/ic_close2"
+                            app:iconifiedByDefault="false"
+                            app:queryBackground="@android:color/transparent"
+                            app:queryHint="Search"
+                            app:searchIcon="@drawable/ic_search"
+                            app:showDividers="middle" />
+
+                    </LinearLayout>
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
+
             </com.google.android.material.appbar.CollapsingToolbarLayout>
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categoryList"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/bg_home_color"
-            android:orientation="horizontal"
             android:paddingHorizontal="5dp"
+            android:id="@+id/categoryList"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            style="@style/categotyList_style"
             tools:listitem="@layout/category_item" />
 
         <androidx.core.widget.NestedScrollView
@@ -162,15 +126,15 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/adsList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    style="@style/adsList_style"
+                    android:paddingHorizontal="5dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:ignore="SpeakableTextPresentCheck"
                     tools:listitem="@layout/ads_item" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/address"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="124dp"
                     android:layout_marginHorizontal="10dp"
@@ -184,26 +148,16 @@
 
                         <TextView
                             android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
+                            style="@style/addressText_style"
                             android:text="@string/check_shipping_address"
-                            android:textColor="@color/black"
-                            android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/addressInput"
-                            android:layout_width="236dp"
-                            android:layout_height="44dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/edittext_style"
-                            android:drawableStart="@drawable/ic_geo_alt"
-                            android:elevation="4dp"
+                            style="@style/addressInput_style"
                             android:hint="@string/address"
-                            android:paddingStart="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/sendLocation"
                             app:layout_constraintHorizontal_chainStyle="packed"
@@ -213,11 +167,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:id="@+id/sendLocation"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:backgroundTint="@color/bg_home_ads_color2"
-                            android:clickable="true"
-                            android:focusable="true"
+                            style="@style/sendBUtton_style"
                             app:cardCornerRadius="6dp"
                             app:cardElevation="2dp"
                             app:layout_constraintBottom_toBottomOf="@+id/addressInput"
@@ -229,7 +179,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:padding="10dp"
-                                android:src="@drawable/send" />
+                                android:src="@drawable/ic_send" />
                         </com.google.android.material.card.MaterialCardView>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -237,47 +187,28 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="6dp"
-                    android:elevation="0dp"
-                    android:orientation="horizontal">
+                    style="@style/header_food_style"
+                    android:layout_marginHorizontal="10dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/food"
-                        android:textColor="@color/black"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        style="@style/food"
+                        android:text="@string/food" />
 
                     <View
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/filter"
-                        android:layout_width="100dp"
-                        android:layout_height="32dp"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="2dp"
-                        android:clickable="true"
-                        android:elevation="0dp"
-                        android:focusable="true"
+                        style="@style/filter"
                         app:cardCornerRadius="6dp">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:paddingStart="10dp"
+                            android:id="@+id/filterText"
+                            style="@style/filterText_style"
                             android:text="@string/filter"
-                            android:textColor="@color/black"
-                            app:drawableStartCompat="@drawable/filter"
+                            app:drawableStartCompat="@drawable/ic_filter"
                             tools:ignore="RtlSymmetry" />
 
                     </com.google.android.material.card.MaterialCardView>
@@ -299,27 +230,34 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
         android:src="@drawable/ic_basket"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/white"
+        style="@style/floatButton_style"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/cardCount"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/text_style"
-        android:elevation="10dp"
-        android:gravity="center"
-        android:paddingTop="2dp"
-        android:textColor="@color/purple_200"
         app:layout_constraintBottom_toTopOf="@+id/floatingActionButton"
         app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
         app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+        style="@style/cardCount_style"
         tools:text="0" />
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:max="160"
+        android:progress="10"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

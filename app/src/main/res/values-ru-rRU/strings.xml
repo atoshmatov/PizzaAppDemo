@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Имя приложения
+    <string name="app_name">PizzaAppDemo</string>
+    //всплеск
+    <string name="roma_pizza">Roma Pizza</string>
+    <string name="text_splash_pizza">версия %1$s</string>
+
+    //текст на главном экране
+    <string name="xit">Хит</string>
+    <string name="tashkent">Ташкент</string>
+    <string name="check_shipping_address">Проверить адрес доставкиs</string>
+    <string name="address">адрес</string>
+    <string name="food">Еда</string>
+    <string name="filter">Фильтр</string>
+    <string name="sign_in">Войти</string>
+
+    //предмет розыгрыша
+    <string name="Stock">Акции</string>
+    <string name="ru">Ru</string>
+    <string name="eng">Aнг</string>
+    <string name="uzb">Узб</string>
+    <string name="setting">Настройки</string>
+    <string name="themes">Темы</string>
+    <string name="share">Делиться</string>
+    <string name="help">Центр помощи</string>
+    <string name="close">закрыть</string>
+</resources>

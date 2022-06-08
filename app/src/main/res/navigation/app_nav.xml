@@ -20,5 +20,5 @@
         android:id="@+id/homeScreen"
         android:name="uz.gita.pizzaappdemo.mobdev20.presentation.ui.screen.home.HomeScreen"
         android:label="home_screen"
-        tools:layout="@layout/screen_home" />
+        tools:layout="@layout/screen_home_nav" />
 </navigation>

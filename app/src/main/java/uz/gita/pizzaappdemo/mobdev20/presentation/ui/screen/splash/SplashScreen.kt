@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import uz.gita.pizzaappdemo.mobdev20.BuildConfig
 import uz.gita.pizzaappdemo.mobdev20.R
 import uz.gita.pizzaappdemo.mobdev20.databinding.ScreenSplashBinding
 import uz.gita.pizzaappdemo.mobdev20.presentation.viewmodel.splash.SplashViewModel
@@ -21,9 +22,10 @@ class SplashScreen : Fragment(R.layout.screen_splash) {
     private val viewModel: SplashViewModel by viewModels<SplashViewModelImpl>()
 
     @SuppressLint("FragmentLiveDataObserve")
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.openNextHomeScreenLiveData.observe(this@SplashScreen, openNextHomeScreenObserver)
+        appVersion.text = resources.getString(R.string.text_splash_pizza, BuildConfig.VERSION_NAME)
     }
 
 

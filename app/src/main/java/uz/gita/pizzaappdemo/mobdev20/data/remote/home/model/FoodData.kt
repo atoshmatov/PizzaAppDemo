@@ -17,4 +17,5 @@ data class FoodData(
     val foodPrice_ru: String? = "",
     val foodPrice_eng: String? = "",
     val foodImageUrl: String? = "",
+    val categoryID: Int? = 0
 ):Serializable

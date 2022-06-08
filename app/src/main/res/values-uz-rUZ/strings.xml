@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //dastur nomi
+    <string name="app_name">PizzaAppDemo</string>
+    //chayqalish
+    <string name="roma_pizza">Roma Pizza</string>
+    <string name="text_splash_pizza">talqin %1$s</string>
+
+    //asosiy ekran so'zlari
+    <string name="xit">Xit</string>
+    <string name="tashkent">Toshkent</string>
+    <string name="check_shipping_address">Yetkazib berish manzilini tekshiring</string>
+    <string name="address">manzil</string>
+    <string name="food">Ovqatlar</string>
+    <string name="filter">Filtr</string>
+    <string name="sign_in">Tizimga kirish</string>
+
+    //draw item
+    <string name="Stock">Акции</string>
+    <string name="ru">Ru</string>
+    <string name="eng">Eng</string>
+    <string name="uzb">Uzb</string>
+    <string name="setting">Sozlamalar</string>
+    <string name="themes">Mavzu</string>
+    <string name="share">Do\'stingiz bilan ulashing</string>
+    <string name="help">Qo\'llab quvatlash markazi</string>
+    <string name="close">yopish</string>
+</resources>

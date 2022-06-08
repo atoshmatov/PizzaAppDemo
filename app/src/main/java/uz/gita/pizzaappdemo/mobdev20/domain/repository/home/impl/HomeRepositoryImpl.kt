@@ -1,6 +1,8 @@
 package uz.gita.pizzaappdemo.mobdev20.domain.repository.home.impl
 
 import com.google.firebase.firestore.FirebaseFirestore
+import timber.log.Timber
+import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.AdsData
 import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.CategoryData
 import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.FoodData
 import uz.gita.pizzaappdemo.mobdev20.domain.repository.home.HomeRepository
@@ -12,6 +14,7 @@ class HomeRepositoryImpl @Inject constructor(
 
     private val category = store.collection("category")
     private val foods = store.collection("foods")
+    private val ads = store.collection("ads")
 
     override suspend fun getCategory(
         success: (List<CategoryData>) -> Unit,
@@ -39,6 +42,19 @@ class HomeRepositoryImpl @Inject constructor(
         }.addOnFailureListener {
             failure.invoke(it)
         }
+    }
+
+    override suspend fun getAds(
+        success: (List<AdsData>) -> Unit,
+        failure: (Throwable) -> Unit
+    ) {
+        Timber.d("getAds")
+        ads.get().addOnSuccessListener { querySnapshot ->
+            val response = querySnapshot.map { queryDocumentSnapshot ->
+                queryDocumentSnapshot.toObject(AdsData::class.java)
+            }
+            success.invoke(response)
+        }.addOnFailureListener { failure.invoke(it) }
     }
 
 }

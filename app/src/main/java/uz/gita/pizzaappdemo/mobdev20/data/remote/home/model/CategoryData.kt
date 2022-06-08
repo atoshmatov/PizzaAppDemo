@@ -8,5 +8,6 @@ data class CategoryData(
     val name_ru: String? = "",
     val name_eng: String? = "",
     val categoryImageUrl: String? = "",
-    val isSelected: Boolean? = false
+    val categoryImageUrl2: String? = "",
+    val selected: Boolean? = false
 ) : Serializable

@@ -31,13 +31,14 @@
                 android:id="@+id/categoryImage"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:adjustViewBounds="true"
                 android:src="@drawable/image_1" />
 
             <TextView
+                android:layout_height="wrap_content"
                 android:id="@+id/categoryName"
                 android:layout_width="43dp"
-                android:layout_height="18sp"
-                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="1"

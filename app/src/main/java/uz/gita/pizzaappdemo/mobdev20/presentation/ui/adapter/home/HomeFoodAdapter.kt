@@ -1,5 +1,6 @@
 package uz.gita.pizzaappdemo.mobdev20.presentation.ui.adapter.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +9,15 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import uz.gita.pizzaappdemo.mobdev20.R
+import uz.gita.pizzaappdemo.mobdev20.data.local.home.SharedPref
 import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.FoodData
 import uz.gita.pizzaappdemo.mobdev20.databinding.FoodItemBinding
 
-class HomeFoodAdapter :
-    ListAdapter<FoodData, HomeFoodAdapter.ViewHolder>(HomeCategoryDiffUtils) {
-    object HomeCategoryDiffUtils : DiffUtil.ItemCallback<FoodData>() {
+class HomeFoodAdapter(val context: Context) :
+    ListAdapter<FoodData, HomeFoodAdapter.ViewHolder>(HomeFoodDiffUtils) {
+    lateinit var sharedPref: SharedPref
+
+    object HomeFoodDiffUtils : DiffUtil.ItemCallback<FoodData>() {
         override fun areItemsTheSame(oldItem: FoodData, newItem: FoodData): Boolean =
             oldItem.id == newItem.id
 
@@ -29,10 +33,25 @@ class HomeFoodAdapter :
         }
 
         fun bind(): FoodData = with(binding) {
+            sharedPref = SharedPref(context)
             getItem(absoluteAdapterPosition).apply {
-                foodName.text = name_eng
-                foodDescription.text = description_eng
-                foodPrise.text = foodPrice_eng
+                when (sharedPref.language) {
+                    1 -> {
+                        foodName.text = name_eng
+                        foodDescription.text = description_eng
+                        foodPrise.text = foodPrice_eng!!
+                    }
+                    2 -> {
+                        foodName.text = name_uz
+                        foodDescription.text = description_uz
+                        foodPrise.text = foodPrice_uz!!
+                    }
+                    else -> {
+                        foodName.text = name_ru
+                        foodDescription.text = description_ru
+                        foodPrise.text = foodPrice_ru!!
+                    }
+                }
                 Glide
                     .with(foodImage)
                     .load(foodImageUrl)

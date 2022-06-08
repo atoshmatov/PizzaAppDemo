@@ -25,7 +25,7 @@
             android:background="@drawable/new_item"
             android:elevation="10dp"
             android:gravity="center"
-            android:text="@string/xit"
+            tools:text="@string/xit"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -55,13 +55,14 @@
 
 
         <TextView
+            android:layout_width="200dp"
             android:id="@+id/foodName"
-            android:layout_width="214dp"
+            android:textSize="14sp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="#191919"
-            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/foodDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.242"
             app:layout_constraintStart_toEndOf="@+id/foodImageCard"
@@ -70,21 +71,22 @@
 
         <TextView
             android:id="@+id/foodDescription"
-            android:layout_width="214dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="#363636"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/foodName"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/foodName"
+            app:layout_constraintStart_toEndOf="@+id/foodImageCard"
             app:layout_constraintTop_toBottomOf="@+id/foodName"
             tools:text="Курица, Лук, Соус Карбонара, Сыр Моцарелла, Чипсы EASY PEAS..." />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/foodCard"
-            android:layout_width="73dp"
+            android:layout_width="80dp"
             android:layout_height="32dp"
             android:backgroundTint="#FFEEE2"
             app:cardCornerRadius="6dp"
@@ -99,10 +101,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:padding="6dp"
-                android:textColor="#FF7010"
+                android:textColor="@color/category_text_color"
                 android:textSize="12sp"
                 tools:text="35 000 s" />
 

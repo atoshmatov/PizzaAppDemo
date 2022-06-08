@@ -6,6 +6,7 @@ import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
+import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.AdsData
 import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.CategoryData
 import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.FoodData
 import uz.gita.pizzaappdemo.mobdev20.domain.repository.home.HomeRepository
@@ -32,6 +33,20 @@ class HomeUseCaseImpl @Inject constructor(
     override fun getFoodsData() = callbackFlow<Result<List<FoodData>>> {
         withContext(Dispatchers.Default) {
             homeRepository.getFood(
+                {
+                    trySendBlocking(Result.success(it))
+                },
+                {
+                    trySendBlocking(Result.failure(it))
+                }
+            )
+        }
+        awaitClose {}
+    }.flowOn(Dispatchers.IO)
+
+    override fun getAdsData() = callbackFlow<Result<List<AdsData>>> {
+        withContext(Dispatchers.Default) {
+            homeRepository.getAds(
                 {
                     trySendBlocking(Result.success(it))
                 },
