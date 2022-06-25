@@ -86,7 +86,7 @@
                             app:closeIcon="@drawable/ic_close2"
                             app:iconifiedByDefault="false"
                             app:queryBackground="@android:color/transparent"
-                            app:queryHint="Search"
+                            app:queryHint="@string/search"
                             app:searchIcon="@drawable/ic_search"
                             app:showDividers="middle" />
 

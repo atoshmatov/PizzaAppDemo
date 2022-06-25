@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewbinding.BuildConfig
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import uz.gita.pizzaappdemo.mobdev20.BuildConfig
-import uz.gita.pizzaappdemo.mobdev20.MainActivity
+import uz.gita.pizzaappdemo.mobdev20.BuildConfig.VERSION_NAME
 import uz.gita.pizzaappdemo.mobdev20.R
 import uz.gita.pizzaappdemo.mobdev20.data.local.home.SharedPref
 import uz.gita.pizzaappdemo.mobdev20.data.remote.home.model.AdsData
@@ -43,7 +43,6 @@ class HomeScreen : Fragment(R.layout.screen_home_nav) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.openDialogLiveData.observe(this@HomeScreen, openDialogObserver)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
@@ -52,8 +51,8 @@ class HomeScreen : Fragment(R.layout.screen_home_nav) {
         foodAdapter = HomeFoodAdapter(requireContext())
         categoryAdapter = HomeCategoryAdapter(requireContext())
         //version text
-        versionAppName.text =
-            resources.getString(R.string.text_splash_pizza, BuildConfig.VERSION_NAME)
+//        versionAppName.text =
+//            resources.getString(R.string.text_splash_pizza, BuildConfig.VERSION_NAME)
         // collection adapter
         liner.categoryList.adapter = categoryAdapter
         liner.foodList.adapter = foodAdapter
@@ -142,6 +141,7 @@ class HomeScreen : Fragment(R.layout.screen_home_nav) {
         val config = Configuration();
         config.locale = locale;
         resources.updateConfiguration(config, resources.displayMetrics)
+        requireActivity().recreate()
     }
 
 

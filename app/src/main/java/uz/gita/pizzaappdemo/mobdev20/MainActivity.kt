@@ -1,7 +1,7 @@
 package uz.gita.pizzaappdemo.mobdev20
 
 import android.annotation.SuppressLint
-import android.os.Build
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
@@ -51,13 +51,14 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 "ru"
             }
         }
-        /*val locale = Locale(languageToLoad);
+        val locale = Locale(languageToLoad);
         Locale.setDefault(locale);
         val config = Configuration();
         config.locale = locale;
-        this.resources.updateConfiguration(config, this.resources.displayMetrics)*/
-
-        val config = resources.configuration
+        this.resources.updateConfiguration(config, this.resources.displayMetrics)
+        recreate()
+        onRestart()
+        /*val config = resources.configuration
         val lang = "fa" // your language code
         val locale = Locale(lang)
         Locale.setDefault(locale)
@@ -68,6 +69,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             createConfigurationContext(config)
-        resources.updateConfiguration(config, resources.displayMetrics)
+        resources.updateConfiguration(config, resources.displayMetrics)*/
     }
 }

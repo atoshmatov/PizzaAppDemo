@@ -10,7 +10,6 @@ import uz.gita.pizzaappdemo.mobdev20.domain.usecase.home.impl.HomeUseCaseImpl
 @Module
 @InstallIn(ViewModelComponent::class)
 interface UseCaseModule {
-
     @Binds
     fun bindHomeUseCase(impl: HomeUseCaseImpl): HomeUseCase
 }
